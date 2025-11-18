@@ -1,0 +1,22 @@
+[
+  {
+    "model": "main.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "Андрей",
+      "last_name": "Сковородников",
+      "avatar": "students/00F87B2C-1FE6-4ADD-BF4D-C9707695EE37_1_105_c.jpeg",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 2,
+    "fields": {
+      "first_name": "Николай",
+      "last_name": "Носков",
+      "avatar": "",
+      "is_active": false
+    }
+  }
+]
