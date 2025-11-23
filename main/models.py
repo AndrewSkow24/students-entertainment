@@ -1,3 +1,5 @@
+from tkinter.constants import CASCADE
+
 from django.db import models
 
 NULLABLE = {"blank": True, "null": True}
@@ -17,3 +19,19 @@ class Student(models.Model):
         verbose_name = "Студент"
         verbose_name_plural = "Студенты"
         ordering = ("last_name",)
+
+
+class Subject(models.Model):
+    title = models.CharField(max_length=150, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание")
+
+    student = models.ForeignKey(
+        Student, on_delete=models.CASCADE, verbose_name="Студент"
+    )
+
+    def __str__(self):
+        return f"{self.title}"
+
+    class Meta:
+        verbose_name = "Предмет"
+        verbose_name_plural = "Предметы"
