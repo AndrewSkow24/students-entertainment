@@ -1,6 +1,6 @@
 import os
 
-from django.conf.global_settings import STATICFILES_DIRS
+from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGOUT_REDIRECT_URL
 from dotenv import load_dotenv
 
 from pathlib import Path
@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "main",
+    "users",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -118,3 +121,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # медиа - то, что пользователь загрузил при работе с сервисом
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+AUTH_USER_MODEL = "users.User"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"

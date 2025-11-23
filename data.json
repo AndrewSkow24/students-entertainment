@@ -1,22 +1,139 @@
 [
   {
     "model": "main.student",
-    "pk": 1,
+    "pk": 10,
     "fields": {
-      "first_name": "Андрей",
-      "last_name": "Сковородников",
-      "avatar": "students/00F87B2C-1FE6-4ADD-BF4D-C9707695EE37_1_105_c.jpeg",
+      "first_name": "Иванушка",
+      "last_name": "Абрикосов",
+      "avatar": "students/0yRiBWcKIEqZDhcSw9YDdyrpidaY_jFp78TZJxTAVIkvD_ql5_NyJz3LTCLXv0AjomcXYXD0LE0hutC_i4oeEzO.jpg",
+      "email": null,
       "is_active": true
     }
   },
   {
     "model": "main.student",
+    "pk": 11,
+    "fields": {
+      "first_name": "Никита",
+      "last_name": "Борисов",
+      "avatar": "students/PTB4AYRDFBIeeLAi8z7hZ-XMTyu8-dGM1yLtDeuf8dToARi_WWtNVUBMOu4XOeqtE-4EBdjGdws0r6Z_Eb4pCSV.jpg",
+      "email": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 12,
+    "fields": {
+      "first_name": "Дарья",
+      "last_name": "Владина",
+      "avatar": "",
+      "email": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 13,
+    "fields": {
+      "first_name": "Екатерина",
+      "last_name": "Галинова",
+      "avatar": "",
+      "email": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 14,
+    "fields": {
+      "first_name": "Татьяна",
+      "last_name": "Данилова",
+      "avatar": "",
+      "email": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 15,
+    "fields": {
+      "first_name": "Анастасия",
+      "last_name": "Ежова",
+      "avatar": "",
+      "email": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 16,
+    "fields": {
+      "first_name": "Иван",
+      "last_name": "Жарин",
+      "avatar": "",
+      "email": "1234@mail.ru",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 17,
+    "fields": {
+      "first_name": "Тест",
+      "last_name": "Тестовой",
+      "avatar": "",
+      "email": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 18,
+    "fields": {
+      "first_name": "Носок",
+      "last_name": "Николаев",
+      "avatar": "",
+      "email": "['Почта не относится к домену mail.ru']",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.student",
+    "pk": 19,
+    "fields": {
+      "first_name": "Артём",
+      "last_name": "Петров",
+      "avatar": "students/D5byOn64j3XIgXSU10sIlgISytaz5sXCKmgMpW1_MGme5_rvbyX8hGDOA9biJmGPfVPNFzpxKrpw0x0_K3MHwMJ.jpg",
+      "email": "123@mail.ru",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.subject",
+    "pk": 1,
+    "fields": {
+      "title": "Python",
+      "description": "Django",
+      "student": 10
+    }
+  },
+  {
+    "model": "main.subject",
     "pk": 2,
     "fields": {
-      "first_name": "Николай",
-      "last_name": "Носков",
-      "avatar": "",
-      "is_active": false
+      "title": "JavaScript",
+      "description": "React",
+      "student": 10
+    }
+  },
+  {
+    "model": "main.subject",
+    "pk": 3,
+    "fields": {
+      "title": "C++",
+      "description": "QT",
+      "student": 10
     }
   }
 ]

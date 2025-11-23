@@ -1,17 +1,24 @@
+from django.db.models.fields import BooleanField, CharField, TextField, EmailField
 from django.forms import ModelForm
 from .models import Student, Subject
 from django import forms
 
 
-class StyleFormMixin:
+class StyledFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            # widget - менеджер поля, который отвечает за отображение
-            field.widget.attrs["class"] = "form-control"
+            if isinstance(field, BooleanField):
+                field.widget.attrs["class"] = "form-check-input"
+            if (
+                isinstance(field, CharField)
+                or isinstance(field, EmailField)
+                or isinstance(field, TextField)
+            ):
+                field.widget.attrs["class"] = "form-control"
 
 
-class StudentForm(StyleFormMixin, ModelForm):
+class StudentForm(StyledFormMixin, ModelForm):
     class Meta:
         fields = "__all__"
         model = Student
@@ -23,7 +30,7 @@ class StudentForm(StyleFormMixin, ModelForm):
         return cleaned_data
 
 
-class SubjectForm(StudentForm, ModelForm):
+class SubjectForm(StyledFormMixin, ModelForm):
     class Meta:
         fields = "__all__"
         model = Subject
