@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %} Добавление студента {% endblock title %}
 
 {% block content %}
@@ -45,7 +47,7 @@
                     <div class="card-body">
                         {{ formset.management_form }}
                         {% for form in formset.forms %}
-                        {{ form.as_p }}
+                        {{ form|crispy }}
                         {% endfor %}
                     </div>
                     <div class="card-footer"></div>

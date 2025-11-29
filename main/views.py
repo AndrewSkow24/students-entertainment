@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -12,6 +14,8 @@ from .forms import StudentForm, SubjectForm
 from django.forms import inlineformset_factory
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
+from .sevices import get_cached_subjects_for_student
+
 
 class StudentCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Student
@@ -22,6 +26,13 @@ class StudentCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
 
 class StudentDetailView(LoginRequiredMixin, DetailView):
     model = Student
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        context_data["subjects"] = get_cached_subjects_for_student(self.object.pk)
+
+        return context_data
 
 
 class StudentUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):

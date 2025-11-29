@@ -29,7 +29,10 @@ class Subject(models.Model):
     description = models.TextField(verbose_name="Описание")
 
     student = models.ForeignKey(
-        Student, on_delete=models.CASCADE, verbose_name="Студент"
+        Student,
+        on_delete=models.CASCADE,
+        verbose_name="Студент",
+        related_name="subjects",
     )
 
     def __str__(self):

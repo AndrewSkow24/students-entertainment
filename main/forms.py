@@ -25,6 +25,10 @@ class StudentForm(StyledFormMixin, ModelForm):
 
     def clean_email(self):
         cleaned_data = self.cleaned_data["email"]
+
+        if not cleaned_data:
+            raise forms.ValidationError("Email обязателен для заполнения")
+
         if "mail.ru" not in cleaned_data:
             raise forms.ValidationError("Почта не относится к домену mail.ru")
         return cleaned_data
