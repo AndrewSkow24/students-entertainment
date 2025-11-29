@@ -1,19 +1,33 @@
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import (
+    CreateView,
+    ListView,
+    UpdateView,
+    DetailView,
+    DeleteView,
+)
 from .models import Student, Subject
 from .forms import StudentForm, SubjectForm
 from django.forms import inlineformset_factory
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
-class StudentCreateView(CreateView):
+class StudentCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Student
     form_class = StudentForm
+    permission_required = "main.add_student"
     success_url = reverse_lazy("main:list_student")
 
 
-class StudentUpdateView(UpdateView):
+class StudentDetailView(LoginRequiredMixin, DetailView):
+    model = Student
+
+
+class StudentUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Student
     form_class = StudentForm
+    permission_required = "main.change_student"
     success_url = reverse_lazy("main:list_student")
 
     def get_context_data(self, **kwargs):
@@ -41,5 +55,11 @@ class StudentUpdateView(UpdateView):
         return super().form_valid(form)
 
 
-class StudentListView(ListView):
+class StudentListView(LoginRequiredMixin, ListView):
     model = Student
+
+
+class StudentDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = Student
+    success_url = reverse_lazy("main:list_student")
+    permission_required = "main.delete_student"

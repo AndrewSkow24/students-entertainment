@@ -8,7 +8,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-8">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">
@@ -35,7 +35,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+
+            {% if object %}
+            <div class="col-4">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">Предметы студента</h2>
@@ -49,6 +51,9 @@
                     <div class="card-footer"></div>
                 </div>
             </div>
+            {% endif %}
+
+
         </div>
 
 </form>
